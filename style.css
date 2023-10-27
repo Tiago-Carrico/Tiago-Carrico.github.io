@@ -37,7 +37,7 @@
   min-width: 15vw;
   text-decoration: none;
   transition: 0.4s;
-
+  color: black;
 }
 
 /*TODO assign light theme to these colors*/
