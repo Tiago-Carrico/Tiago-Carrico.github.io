@@ -17,15 +17,23 @@
 <body data-theme="dark">
   <!--TODO later remember to set in style.css the light theme colors (use white base with sony dynamicron accent colors)-->
   <div class="header">
+    <audio autoplay muted>
+      <source src="Assets/Music/Crypto.mp3" type="audio/mpeg">
+      <!--TODO make script to play next song when current finishes with an EventListener-->
+      <!--TODO can you change control menu appearance?-->
+    </audio>
     <nav class="headerLinks">
-      <div class="highlightBox" id="highAbout">
-        <a href="#gallery">About</a>
+      <div class="highlightBox">
+        <a href="#about" id="highAbout">About</a>
+        <a href="#projects" id="highProjects">Projects</a>
+        <a href="#funfacts" id="highFacts">Fun Facts</a>
       </div>
-      <!--
+  </div>
+  <!--
       <a href="#contact">Tech</a>
       <a href="#about">About</a>
       -->
-    </nav>
+  </nav>
   </div>
 </body>
 
