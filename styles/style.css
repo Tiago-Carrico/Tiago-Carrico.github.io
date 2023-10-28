@@ -1,19 +1,44 @@
 /*Z-index order/registry:
 100 - reserved for always visible elements
   - Header
+0 - background elements only
+  - Static background
 
 */
+
+/*both are the "global" vars for light mode and dark mode themes*/
+html {
+  background:
+    var(--lightBg);
+  --lightBtnAbout: #fdc331;
+  --lightBtnProjects: #fe5722;
+  --lightBtnFacts: #ae203b;
+  --textColor: black;
+  --textColorHover: white;
+  --staticOpacity: 0;
+
+}
+
+/*TODO update all dark-mode version colors*/
+html[data-theme=dark] {
+  background:
+    var(--lightBg);
+  --lightBtnAbout: #023cce;
+  --lightBtnProjects: #01a8dd;
+  --lightBtnFacts: #51dfc4;
+  --textColor: white;
+  --textColorHover: black;
+  --staticOpacity: 1;
+}
 
 .header {
   display: flex;
   position: fixed;
   top: 0;
   right: 0;
-  height: 5vh;
+  height: 8vh;
   width: 100%;
   z-index: 100;
-
-
 }
 
 .headerLinks {
@@ -40,35 +65,246 @@
   min-width: 15vw;
   text-decoration: none;
   transition: 0.4s;
-  color: black;
+  color: var(--textColor);
 }
 
-
-#highAbout:hover[theme=dark] {
+#highAbout:hover {
   /*TODO Don't forget to change color on arrow on top*/
-  background-color: #purple;
-  color: white;
+  background:
+    var(--lightBtnAbout);
+  color: var(--textColorHover);
 }
-
-/*TODO experiment with size, and possibly font if you have the time*/
-/*TODO assign light theme to these colors*/
-#highAbout:hover[data-theme=light] {
-  /*TODO Don't forget to change color on arrow on top*/
-  background-color: #fdc331;
-  color: white;
-}
-
-
 
 #highProjects:hover {
-  /*TODO Don't forget to change color on arrow on top*/
-  background-color: #fe5722;
-  color: white;
+  background:
+    var(--lightBtnProjects);
+  color: var(--textColorHover);
 }
 
 #highFacts:hover {
-  /*TODO Don't forget to change color on arrow on top*/
-  background-color: #ae203b;
-  color: white;
+  background:
+    var(--lightBtnFacts);
+  color: var(--textColorHover);
 }
 
+
+/*SLIDER PART*/
+
+.slider_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/*mfw the 0*0 thing still occupies space be it hidden or not lmao*/
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  width: 55px;
+  height: 30px;
+  background: var(--lightBtnAbout);
+  /*had another state for checked but this is cleaner and 100% inline with current theme*/
+  display: flex;
+  float: right;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  position: relative;
+}
+
+/*controls the inner ball*/
+label:after {
+  content: "";
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 320ms;
+}
+
+input:checked+label:after {
+  left: calc(100% - 5px);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 420ms !important;
+  transition-delay: 0 !important;
+}
+
+/*SLIDER PART END*/
+
+/*STATIC PART*/
+
+/*Taken and adapted from:
+https://codepen.io/anatravas/pen/vyOwOZ
+*/
+/*TODO if you need the body it's here but plz fix it later*/
+.body_bg {
+  position: fixed;
+  background-color: #2c2c2c;
+  background: radial-gradient(ellipse at center, #29382c 0%, #0c100d 100%);
+  height: 100%;
+  width: 100%;
+  opacity: var(--staticOpacity);
+  top: 0px;
+  left: 0px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.main-wrapper {
+  position: relative;
+  padding: 0;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noise-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.noise-wrapper:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+}
+
+.noise {
+  position: absolute;
+  top: -500px;
+  right: -500px;
+  bottom: -500px;
+  left: -500px;
+  background: transparent url(https://www.dropbox.com/s/h7ab1c82ctzy83n/noise.png?raw=1) 0 0;
+  background-size: 320px 320px;
+  opacity: 0.35;
+  -webkit-animation: noise 1s steps(8, end) infinite both;
+  animation: noise 1s steps(8, end) infinite both;
+}
+
+@-webkit-keyframes noise {
+  0% {
+    transform: translateX(0px, 0px);
+  }
+
+  10% {
+    transform: translate(-100px, 100px);
+  }
+
+  20% {
+    transform: translate(150px, -100px);
+  }
+
+  30% {
+    transform: translate(-100px, 100px);
+  }
+
+  40% {
+    transform: translate(100px, -150px);
+  }
+
+  50% {
+    transform: translate(-100px, 200px);
+  }
+
+  60% {
+    transform: translate(-200px, -100px);
+  }
+
+  70% {
+    transform: translateY(50px, 100px);
+  }
+
+  80% {
+    transform: translate(100px, -150px);
+  }
+
+  90% {
+    transform: translate(0px, 200px);
+  }
+
+  100% {
+    transform: translate(-100px, 100px);
+  }
+}
+
+@keyframes noise {
+  0% {
+    transform: translateX(0px, 0px);
+  }
+
+  10% {
+    transform: translate(-100px, 100px);
+  }
+
+  20% {
+    transform: translate(150px, -100px);
+  }
+
+  30% {
+    transform: translate(-100px, 100px);
+  }
+
+  40% {
+    transform: translate(100px, -150px);
+  }
+
+  50% {
+    transform: translate(-100px, 200px);
+  }
+
+  60% {
+    transform: translate(-200px, -100px);
+  }
+
+  70% {
+    transform: translateY(50px, 100px);
+  }
+
+  80% {
+    transform: translate(100px, -150px);
+  }
+
+  90% {
+    transform: translate(0px, 200px);
+  }
+
+  100% {
+    transform: translate(-100px, 100px);
+  }
+}
+
+/*STATIC PART END*/
