@@ -11,30 +11,44 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Rose-tinted glasses</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="styles/style.css" rel="stylesheet" type="text/css" />
+  <script src="scripts/script.js"></script>
+  <!--Slider button import-->
+  <link href="styles/slider.css" rel="stylesheet" type="text/css" />
+  <!--Static imports-->
+  <link href="styles/static.css" rel="stylesheet" type="text/css" />
+  <script src="scripts/static.js" defer></script>
 </head>
 
-<body data-theme="dark">
+<body data-theme="light">
+  <!--Check how to stop the static animation when in light theme-->
+  <div class="main-wrapper">
+    <div class="noise-wrapper">
+      <div class="noise">
+      </div>
+    </div>
+  </div>
   <!--TODO later remember to set in style.css the light theme colors (use white base with sony dynamicron accent colors)-->
-  <div class="header">
+  <nav class="header">
     <audio autoplay muted>
       <source src="Assets/Music/Crypto.mp3" type="audio/mpeg">
       <!--TODO make script to play next song when current finishes with an EventListener-->
       <!--TODO can you change control menu appearance?-->
     </audio>
+
+    <label class="switch" title="Switch theme">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+
     <nav class="headerLinks">
       <div class="highlightBox">
         <a href="#about" id="highAbout">About</a>
         <a href="#projects" id="highProjects">Projects</a>
         <a href="#funfacts" id="highFacts">Fun Facts</a>
       </div>
-  </div>
-  <!--
-      <a href="#contact">Tech</a>
-      <a href="#about">About</a>
-      -->
+    </nav>
   </nav>
-  </div>
 </body>
 
 </html>

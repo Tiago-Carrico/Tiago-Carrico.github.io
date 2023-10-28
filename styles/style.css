@@ -13,6 +13,10 @@
   width: 100%;
   z-index: 100;
 
+
+  border: solid;
+  border-color: red;
+
 }
 
 .headerLinks {
@@ -40,6 +44,7 @@
   color: black;
 }
 
+/*TODO experiment with size, and possibly font if you have the time*/
 /*TODO assign light theme to these colors*/
 #highAbout:hover {
   /*TODO Don't forget to change color on arrow on top*/
@@ -58,6 +63,3 @@
   background-color: #ae203b;
   color: white;
 }
-
-/*TODO experiment with size, and possibly font if you have the time*/
-/*TODO center vertically*/
