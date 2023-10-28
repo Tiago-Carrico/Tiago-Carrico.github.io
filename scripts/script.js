@@ -1,12 +1,22 @@
 
+var checkboxTheme = document.querySelector('.container_toggle');
 
-//Checks current selected theme
-document.addEventListener('DOMContentLoaded', () => {
-  // Deteck theme preference
-  if (localStorage.getItem('theme')) document.body.dataset.theme = localStorage.getItem('theme');
-  else {
-    let themePreference = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    localStorage.setItem('theme', themePreference);
-    document.body.dataset.theme = themePreference;
+checkboxTheme.addEventListener('change', function() {
+  log("woohoo it listened");
+  if (this.checked) {
+    log("its checked");
+    trans()
+    document.documentElement.setAttribute('data-theme', 'light')
+  } else {
+    log("not checked");
+    trans()
+    document.documentElement.setAttribute('data-theme', 'dark')
   }
 })
+
+let trans = () => {
+  document.documentElement.classList.add('transition');
+  window.setTimeout(() => {
+    document.documentElement.classList.remove('transition');
+  }, 1000)
+}
