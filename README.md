@@ -9,3 +9,5 @@ Personal Website for the Web Development class
 - https://www.google.com/search?q=kodak+tape&tbm=isch&ved=2ahUKEwirqsjJzpaCAxXEXqQEHfI0CpMQ2-cCegQIABAA&oq=kodak+tape&gs_lcp=CgNpbWcQAzIFCAAQgAQyBggAEAgQHjIGCAAQCBAeMgYIABAIEB46BAgjECc6BwgAEIoFEEM6BggAEAUQHlDlAViNCmDGDmgAcAB4AIABZ4gBxQaSAQM4LjGYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=r-A7ZeuWL8S9kdUP8umomAk&bih=918&biw=958&client=firefox-b-d&hl=en#imgrc=TO2CsOyYPXsevM
 - https://scp-wiki.wikidot.com/theme:dynamikron
 - 
+
+Helvetica font was used due to being the closest free use font to the one used in the original Dynamicron tape sleeve (original is believe to be Neue Haas Grotesk).
