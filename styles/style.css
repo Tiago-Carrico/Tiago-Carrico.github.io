@@ -12,15 +12,29 @@
   src: url('VCR_OSD_MONO_1.001.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: Helvetica-Bold;
+  src: url('Helvetica\ Bold\ Condensed\ Oblique.otf') format('woff');
+}
+
+@font-face {
+  font-family: Helvetica-Custom;
+  src: url('Helvetica.otf');
+}
+
 
 /*both are the "global" vars for light mode and dark mode themes*/
 html {
   background:
     var(--lightBg);
   --bgColor: #f5f0f0;
-  --lightBtnAbout: #fdc331;
-  --lightBtnProjects: #fe5722;
-  --lightBtnFacts: #ae203b;
+  --btnAbout: #fdc331;
+  --btnProjects: #fe5722;
+  --btnFacts: #ae203b;
+  --gradient: linear-gradient(0deg, rgba(253, 195, 49, 1) 0%, rgba(254, 87, 34, 1) 73%, rgba(174, 32, 59, 1) 100%);
+  --gradientDown: linear-gradient(0deg, rgba(174, 32, 59, 1) 0%, rgba(254, 87, 34, 1) 73%, rgba(253, 195, 49, 1) 100%);
+  --gradientSide: linear-gradient(90deg, rgba(253, 195, 49, 1) 0%, rgba(254, 87, 34, 1) 73%, rgba(174, 32, 59, 1) 100%);
+  --gradientSideFullStop: linear-gradient(90deg, rgba(253, 195, 49, 1), rgba(253, 195, 49, 1) 33%, rgba(254, 87, 34, 1) 33%, rgba(254, 87, 34, 1) 73%, rgba(174, 32, 59, 1) 73%, rgba(174, 32, 59, 1));
   --textColor: black;
   --textColorHover: white;
   --staticOpacity: 0;
@@ -38,16 +52,39 @@ html[data-theme=dark] {
   background:
     var(--lightBg);
   --bgColor: #1a1a1a;
-  --lightBtnAbout: #023cce;
-  --lightBtnProjects: #01a8dd;
-  --lightBtnFacts: #51dfc4;
+  --btnAbout: #023cce;
+  --btnProjects: #01a8dd;
+  --btnFacts: #51dfc4;
+  --gradient: linear-gradient(0deg, rgba(81, 223, 196, 1) 0%, rgba(1, 168, 221, 1) 73%, rgba(2, 60, 206, 1) 100%);
+  --gradientDown: linear-gradient(0deg, rgba(2, 60, 206, 1) 0%, rgba(1, 168, 221, 1) 73%, rgba(81, 223, 196, 1) 100%);
+  --gradientSide: linear-gradient(90deg, rgba(81, 223, 196, 1) 0%, rgba(1, 168, 221, 1) 73%, rgba(2, 60, 206, 1) 100%);
+  --gradientSideFullStop: linear-gradient(90deg, rgba(81, 223, 196, 1), rgba(81, 223, 196, 1) 33%, rgba(1, 168, 221, 1) 33%, rgba(1, 168, 221, 1) 73%, rgba(2, 60, 206, 1) 73%, rgba(2, 60, 206, 1));
   --textColor: white;
   --textColorHover: black;
   --staticOpacity: 1;
 }
 
+#gradient-horizontal {
+  --color-stop-1: var(--btnAbout);
+  --color-stop-2: var(--btnProjects);
+  --color-stop-3: var(--btnFacts);
+}
+
+#gradient-horizontal-fullstop {
+  --color-stop-1: var(--btnAbout);
+  --color-stop-2: var(--btnAbout);
+  --color-stop-3: var(--btnProjects);
+  --color-stop-4: var(--btnProjects);
+  --color-stop-5: var(--btnFacts);
+  --color-stop-6: var(--btnFacts);
+}
+
 h2 {
-  font-family: VCR;
+  font-family: Helvetica-Bold;
+}
+
+p {
+  font-family: Helvetica-Custom;
 }
 
 header {
@@ -57,17 +94,15 @@ header {
   right: 0;
   height: 8vh;
   width: 100%;
-  z-index: 100;
   background-color: var(--bgColor);
+  z-index: 100;
   border: solid;
   border-color: green;
 }
 
 .headerLinks {
   display: flex;
-  /*font-family: "Courier New";*/
-  font-family: VCR;
-  /*font-weight: 900;*/
+  font-family: Helvetica-Bold;
   font-size: 2rem;
   width: 100%;
   justify-content: flex-end;
@@ -96,19 +131,19 @@ header {
 #highAbout:hover {
   /*TODO Don't forget to change color on arrow on top*/
   background:
-    var(--lightBtnAbout);
+    var(--btnAbout);
   color: var(--textColorHover);
 }
 
 #highProjects:hover {
   background:
-    var(--lightBtnProjects);
+    var(--btnProjects);
   color: var(--textColorHover);
 }
 
 #highFacts:hover {
   background:
-    var(--lightBtnFacts);
+    var(--btnFacts);
   color: var(--textColorHover);
 }
 
@@ -119,6 +154,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 2vw;
 }
 
 /*mfw the 0*0 thing still occupies space be it hidden or not lmao*/
@@ -132,7 +168,7 @@ label {
   cursor: pointer;
   width: 55px;
   height: 30px;
-  background: var(--lightBtnAbout);
+  background: var(--gradientSide);
   /*had another state for checked but this is cleaner and 100% inline with current theme*/
   display: flex;
   float: right;
@@ -190,6 +226,7 @@ https://codepen.io/anatravas/pen/vyOwOZ
   opacity: var(--staticOpacity);
   top: 0px;
   left: 0px;
+  z-index: -1;
 }
 
 
@@ -209,7 +246,6 @@ https://codepen.io/anatravas/pen/vyOwOZ
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 0;
 }
 
 .noise-wrapper:after {
@@ -334,8 +370,8 @@ https://codepen.io/anatravas/pen/vyOwOZ
 main {
   border: solid;
   border-color: red;
-  margin-top: 10%;
-  z-index: 1;
+  margin-top: 8vh;
+  margin-left: 12vw;
   color: var(--textColor);
 }
 
@@ -346,8 +382,8 @@ main {
 }
 
 .selfPic {
-  width: 70%;
-  height: 70%;
+  width: 30%;
+  height: 30%;
   align-self: center;
 }
 
@@ -366,9 +402,11 @@ main {
 /*SIDE SOCIALS PART START*/
 .socials {
   display: inline-block;
-  left: 1rem;
-  right: 1rem;
-  z-index: 2;
+  position: fixed;
+  max-width: 10vw;
+  margin-top: 8vh;
+  top: 50%;
+  transform: translate(0, -55%);
   border: solid;
   border-color: purple;
 }
@@ -388,13 +426,32 @@ main {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   mask-position: center;
-  fill: var(--textColor);
+  /*fill: var(--textColor);*/
+  fill: url(#gradient-horizontal) var(--textColor);
 }
 
 #rose_glasses_pic {
   max-height: 10vh;
   max-width: 10vw;
   border-radius: 100%;
+}
+
+.socials::before {
+  content: "";
+  background: var(--gradient);
+  width: 5px;
+  height: 50vh;
+  display: block;
+  margin: 0 auto;
+}
+
+.socials::after {
+  content: "";
+  background: var(--gradientDown);
+  width: 5px;
+  height: 50vh;
+  display: block;
+  margin: 0 auto;
 }
 
 
