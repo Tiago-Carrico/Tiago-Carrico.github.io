@@ -132,6 +132,7 @@ header {
 }
 
 /*So the header text doesn't become too small on mobile or too big on desktop, this is for mobile only*/
+/*TODO check out how many more we gotta do*/
 @media only screen and (max-width: 600px) {
   .headerLinks {
     font-size: 6vw;
@@ -432,11 +433,11 @@ main {
   margin-right: auto;
 }
 
-@media only screen and (max-width: 2080px) {
+/*TODO check out if these look good*/
+@media only screen and (max-width: 600px) {
   .socials {
     max-width: 15vw;
     min-width: 10vw;
-    background: red;
   }
 }
 
