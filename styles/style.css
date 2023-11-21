@@ -435,6 +435,7 @@ main {
 @media only screen and (max-width: 600px) {
   .socials {
     max-width: 15vw;
+    min-width: 10vw;
   }
 }
 
@@ -443,6 +444,7 @@ main {
     max-height: 15vh;
     max-width: 15vw;
     margin: 20%;
+    min-width: 10vw;
   }
 }
 
