@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: Helvetica-Custom;
-  src: url('Helvetica.otf') format('woff');
+  src: url('Helvetica\ CE\ Bold.otf') format('woff');
 }
 
 
@@ -88,7 +88,12 @@ h2 {
 }
 
 p {
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica-Custom, sans-serif;
+  font-weight: bold;
+}
+
+span {
+  font-family: Helvetica-Custom, sans-serif;
   font-weight: bold;
 }
 
@@ -388,9 +393,13 @@ main {
   color: var(--textColor);
 }
 
+.main_section {
+  margin-top: 500px;
+}
+
 /*ABOUT SECTION BEGIN*/
 
-.about {
+#about {
   display: inline-block;
 }
 
@@ -494,3 +503,23 @@ main {
 
 
 /*SIDE SOCIALS PART END*/
+
+/*CAT FACTS PART BEGIN*/
+
+.funfacts {
+  display: inline-block;
+}
+
+#cat-fact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#random-cat {
+  width: 30vw;
+  height: 30vh;
+  align-self: center;
+}
+
+/*CAT FACTS PART END*/
