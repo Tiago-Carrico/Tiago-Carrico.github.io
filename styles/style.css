@@ -436,6 +436,7 @@ main {
   .socials {
     max-width: 15vw;
     min-width: 10vw;
+    background: red;
   }
 }
 
