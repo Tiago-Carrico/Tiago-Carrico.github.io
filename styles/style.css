@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: Helvetica-Custom;
-  src: url('Helvetica.otf');
+  src: url('Helvetica.otf') format('woff');
 }
 
 
@@ -31,10 +31,12 @@ html {
   --btnAbout: #fdc331;
   --btnProjects: #fe5722;
   --btnFacts: #ae203b;
-  --gradient: linear-gradient(0deg, rgba(253, 195, 49, 1) 0%, rgba(254, 87, 34, 1) 73%, rgba(174, 32, 59, 1) 100%);
-  --gradientDown: linear-gradient(0deg, rgba(174, 32, 59, 1) 0%, rgba(254, 87, 34, 1) 73%, rgba(253, 195, 49, 1) 100%);
-  --gradientSide: linear-gradient(90deg, rgba(253, 195, 49, 1) 0%, rgba(254, 87, 34, 1) 73%, rgba(174, 32, 59, 1) 100%);
-  --gradientSideFullStop: linear-gradient(90deg, rgba(253, 195, 49, 1), rgba(253, 195, 49, 1) 33%, rgba(254, 87, 34, 1) 33%, rgba(254, 87, 34, 1) 73%, rgba(174, 32, 59, 1) 73%, rgba(174, 32, 59, 1));
+  --gradient: linear-gradient(0deg, var(--btnAbout) 0%, var(--btnProjects) 73%, var(--btnFacts) 100%);
+  --gradientDown: linear-gradient(0deg, var(--btnFacts) 0%, var(--btnProjects) 73%, var(--btnAbout) 100%);
+  --gradientSide: linear-gradient(90deg, var(--btnAbout) 0%, var(--btnProjects) 73%, var(--btnFacts) 100%);
+  --gradientFullStop: linear-gradient(0deg, var(--btnAbout), var(--btnAbout) 33%, var(--btnProjects) 33%, var(--btnProjects) 73%, var(--btnFacts) 73%, var(--btnFacts));
+  --gradientDownFullStop: linear-gradient(0deg, var(--btnFacts), var(--btnFacts) 33%, var(--btnProjects) 33%, var(--btnProjects) 73%, var(--btnAbout) 73%, var(--btnAbout));
+  --gradientSideFullStop: linear-gradient(90deg, var(--btnAbout), var(--btnAbout) 33%, var(--btnProjects) 33%, var(--btnProjects) 73%, var(--btnFacts) 73%, var(--btnFacts));
   --textColor: black;
   --textColorHover: white;
   --staticOpacity: 0;
@@ -55,10 +57,12 @@ html[data-theme=dark] {
   --btnAbout: #023cce;
   --btnProjects: #01a8dd;
   --btnFacts: #51dfc4;
-  --gradient: linear-gradient(0deg, rgba(81, 223, 196, 1) 0%, rgba(1, 168, 221, 1) 73%, rgba(2, 60, 206, 1) 100%);
-  --gradientDown: linear-gradient(0deg, rgba(2, 60, 206, 1) 0%, rgba(1, 168, 221, 1) 73%, rgba(81, 223, 196, 1) 100%);
-  --gradientSide: linear-gradient(90deg, rgba(81, 223, 196, 1) 0%, rgba(1, 168, 221, 1) 73%, rgba(2, 60, 206, 1) 100%);
-  --gradientSideFullStop: linear-gradient(90deg, rgba(81, 223, 196, 1), rgba(81, 223, 196, 1) 33%, rgba(1, 168, 221, 1) 33%, rgba(1, 168, 221, 1) 73%, rgba(2, 60, 206, 1) 73%, rgba(2, 60, 206, 1));
+  --gradient: linear-gradient(0deg, var(--btnAbout) 0%, var(--btnProjects) 73%, var(--btnFacts) 100%);
+  --gradientDown: linear-gradient(0deg, var(--btnFacts) 0%, var(--btnProjects) 73%, var(--btnAbout) 100%);
+  --gradientSide: linear-gradient(90deg, var(--btnAbout) 0%, var(--btnProjects) 73%, var(--btnFacts) 100%);
+  --gradientFullStop: linear-gradient(0deg, var(--btnAbout), var(--btnAbout) 33%, var(--btnProjects) 33%, var(--btnProjects) 73%, var(--btnFacts) 73%, var(--btnFacts));
+  --gradientDownFullStop: linear-gradient(0deg, var(--btnFacts), var(--btnFacts) 33%, var(--btnProjects) 33%, var(--btnProjects) 73%, var(--btnAbout) 73%, var(--btnAbout));
+  --gradientSideFullStop: linear-gradient(90deg, var(--btnAbout), var(--btnAbout) 33%, var(--btnProjects) 33%, var(--btnProjects) 73%, var(--btnFacts) 73%, var(--btnFacts));
   --textColor: white;
   --textColorHover: black;
   --staticOpacity: 1;
@@ -84,7 +88,8 @@ h2 {
 }
 
 p {
-  font-family: Helvetica-Custom;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
 }
 
 header {
@@ -168,7 +173,7 @@ label {
   cursor: pointer;
   width: 55px;
   height: 30px;
-  background: var(--gradientSide);
+  background: var(--gradientSideFullStop);
   /*had another state for checked but this is cleaner and 100% inline with current theme*/
   display: flex;
   float: right;
@@ -372,6 +377,7 @@ main {
   border-color: red;
   margin-top: 8vh;
   margin-left: 12vw;
+  /*margin-right: 12vw;*/
   color: var(--textColor);
 }
 
@@ -426,8 +432,8 @@ main {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   mask-position: center;
-  /*fill: var(--textColor);*/
-  fill: url(#gradient-horizontal) var(--textColor);
+  /*fill: url(#gradient-horizontal) var(--textColor);*/
+  fill: url(#gradient-horizontal-fullstop) var(--textColor);
 }
 
 #rose_glasses_pic {
@@ -438,7 +444,7 @@ main {
 
 .socials::before {
   content: "";
-  background: var(--gradient);
+  background: var(--gradientFullStop);
   width: 5px;
   height: 50vh;
   display: block;
@@ -447,7 +453,7 @@ main {
 
 .socials::after {
   content: "";
-  background: var(--gradientDown);
+  background: var(--gradientDownFullStop);
   width: 5px;
   height: 50vh;
   display: block;
