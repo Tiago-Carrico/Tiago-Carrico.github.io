@@ -11,3 +11,5 @@ Personal Website for the Web Development class
 - 
 
 Helvetica font was used due to being the closest free use font to the one used in the original Dynamicron tape sleeve (original is believe to be Neue Haas Grotesk).
+
+Text is offset to the right in order to better resemble a tape's sleeve back text.
