@@ -108,7 +108,7 @@ header {
 .headerLinks {
   display: flex;
   font-family: Helvetica-Bold;
-  font-size: 2rem;
+  font-size: 3.5vw;
   width: 100%;
   justify-content: flex-end;
 
@@ -117,8 +117,6 @@ header {
 .highlightBox {
   display: flex;
   align-items: stretch;
-
-
 }
 
 .highlightBox>a {
@@ -127,10 +125,17 @@ header {
   padding-right: 1vw;
   align-items: center;
   justify-content: center;
-  min-width: 15vw;
+  min-width: 10vw;
   text-decoration: none;
   transition: 0.4s;
   color: var(--textColor);
+}
+
+/*So the header text doesn't become too small on mobile or too big on desktop, this is for mobile only*/
+@media only screen and (max-width: 600px) {
+  .headerLinks {
+    font-size: 6vw;
+  }
 }
 
 #highAbout:hover {
@@ -376,7 +381,8 @@ main {
   border: solid;
   border-color: red;
   margin-top: 8vh;
-  margin-left: 12vw;
+  /*margin-left: 12vw;*/
+  margin-left: 20vw;
   /*margin-right: 12vw;*/
   color: var(--textColor);
 }
@@ -425,6 +431,28 @@ main {
   margin-left: auto;
   margin-right: auto;
 }
+
+@media only screen and (max-width: 600px) {
+  .socials {
+    max-width: 15vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .socials-item {
+    max-height: 15vh;
+    max-width: 15vw;
+    margin: 20%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #rose_glasses_pic {
+    max-height: 15vh;
+    max-width: 15vw;
+  }
+}
+
 
 /*https://dev.to/hasantezcan/how-to-colorize-svg-image-1kc8*/
 .socials_logo {
