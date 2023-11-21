@@ -404,6 +404,7 @@ main {
 }
 
 .selfPic {
+  object-fit: contain;
   max-width: 30vw;
   max-height: 30vh;
   width: auto;
