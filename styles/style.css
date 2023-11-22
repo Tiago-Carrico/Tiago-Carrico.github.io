@@ -54,9 +54,9 @@ html[data-theme=dark] {
   background:
     var(--lightBg);
   --bgColor: #1a1a1a;
-  --btnAbout: #023cce;
-  --btnProjects: #01a8dd;
-  --btnFacts: #51dfc4;
+  --btnAbout: #691d58;
+  --btnProjects: #b70851;
+  --btnFacts: #e7083c;
   --gradient: linear-gradient(0deg, var(--btnAbout) 0%, var(--btnProjects) 73%, var(--btnFacts) 100%);
   --gradientDown: linear-gradient(0deg, var(--btnFacts) 0%, var(--btnProjects) 73%, var(--btnAbout) 100%);
   --gradientSide: linear-gradient(90deg, var(--btnAbout) 0%, var(--btnProjects) 73%, var(--btnFacts) 100%);
@@ -64,7 +64,7 @@ html[data-theme=dark] {
   --gradientDownFullStop: linear-gradient(0deg, var(--btnFacts), var(--btnFacts) 33%, var(--btnProjects) 33%, var(--btnProjects) 73%, var(--btnAbout) 73%, var(--btnAbout));
   --gradientSideFullStop: linear-gradient(90deg, var(--btnAbout), var(--btnAbout) 33%, var(--btnProjects) 33%, var(--btnProjects) 73%, var(--btnFacts) 73%, var(--btnFacts));
   --textColor: white;
-  --textColorHover: black;
+  --textColorHover: white;
   --staticOpacity: 1;
 }
 
@@ -85,6 +85,7 @@ html[data-theme=dark] {
 
 h2 {
   font-family: Helvetica-Bold;
+  font-size: 200%;
 }
 
 p {
@@ -93,7 +94,7 @@ p {
 }
 
 span {
-  font-family: Helvetica-Custom, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: bold;
 }
 
@@ -126,6 +127,7 @@ header {
 
 .highlightBox>a {
   display: flex;
+  position: relative;
   padding-left: 1vw;
   padding-right: 1vw;
   align-items: center;
@@ -144,8 +146,93 @@ header {
   }
 }
 
+#highAbout::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+#highAbout:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#highAbout::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: var(--btnAbout);
+  z-index: -1;
+  transition: transform .3s ease;
+}
+
+#highProjects::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+#highProjects:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#highProjects::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: var(--btnProjects);
+  z-index: -1;
+  transition: transform .3s ease;
+}
+
+#highFacts::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+#highFacts:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#highFacts::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: var(--btnFacts);
+  z-index: -1;
+  transition: transform .3s ease;
+}
+
 #highAbout:hover {
-  /*TODO Don't forget to change color on arrow on top*/
+  color: var(--textColorHover);
+}
+
+#highProjects:hover {
+  color: var(--textColorHover);
+}
+
+#highFacts:hover {
+  color: var(--textColorHover);
+}
+
+/*
+#highAbout:hover {
+  
   background:
     var(--btnAbout);
   color: var(--textColorHover);
@@ -161,7 +248,7 @@ header {
   background:
     var(--btnFacts);
   color: var(--textColorHover);
-}
+}*/
 
 
 /*SLIDER PART*/
@@ -428,7 +515,7 @@ main {
 .socials {
   display: inline-block;
   position: fixed;
-  max-width: 10vw;
+  max-width: 8vw;
   margin-top: 8vh;
   top: 50%;
   transform: translate(0, -55%);
@@ -438,8 +525,8 @@ main {
 
 .socials_item {
   display: flex;
-  max-height: 10vh;
-  max-width: 10vw;
+  max-height: 8vh;
+  max-width: 8vw;
   margin: 10%;
   margin-left: auto;
   margin-right: auto;
@@ -481,8 +568,8 @@ main {
 }
 
 #rose_glasses_pic {
-  max-height: 10vh;
-  max-width: 10vw;
+  max-height: 8vh;
+  max-width: 8vw;
   border-radius: 100%;
 }
 
