@@ -107,6 +107,7 @@ header {
   width: 100%;
   background-color: var(--bgColor);
   z-index: 100;
+  border-bottom: solid black 5px;
 }
 
 .headerLinks {
@@ -115,6 +116,7 @@ header {
   font-size: 3.5vw;
   width: 100%;
   justify-content: flex-end;
+  margin-right: 2vw;
 
 }
 
@@ -479,7 +481,7 @@ main {
 }
 
 .main_section {
-  margin-top: 500px;
+  margin-top: 20vh;
 }
 
 /*ABOUT SECTION BEGIN*/
@@ -508,21 +510,21 @@ main {
 /*ABOUT SECTION END*/
 
 /*PROJECTS SECTION BEGIN*/
-.disclaimer{
+.disclaimer {
   font-weight: small;
   font-size: 12px;
 }
 
-li{
+li {
   font-family: Helvetica, sans-serif;
 }
 
-#projects_block{
+#projects_block {
   display: flex;
   flex-direction: column;
 }
 
-.lists{
+.lists {
   display: flex;
   flex-direction: row;
 }
