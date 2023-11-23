@@ -107,8 +107,6 @@ header {
   width: 100%;
   background-color: var(--bgColor);
   z-index: 100;
-  border: solid;
-  border-color: green;
 }
 
 .headerLinks {
@@ -509,6 +507,28 @@ main {
 
 /*ABOUT SECTION END*/
 
+/*PROJECTS SECTION BEGIN*/
+.disclaimer{
+  font-weight: small;
+  font-size: 12px;
+}
+
+li{
+  font-family: Helvetica, sans-serif;
+}
+
+#projects_block{
+  display: flex;
+  flex-direction: column;
+}
+
+.lists{
+  display: flex;
+  flex-direction: row;
+}
+
+/*PROJECTS SECTION END*/
+
 /*CONTENT PART END*/
 
 /*SIDE SOCIALS PART START*/
@@ -558,6 +578,8 @@ main {
 
 /*https://dev.to/hasantezcan/how-to-colorize-svg-image-1kc8*/
 .socials_logo {
+  min-width: 6vw;
+  min-height: 6vh;
   mask-size: 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
