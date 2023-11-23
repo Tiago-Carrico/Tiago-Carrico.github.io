@@ -1,14 +1,20 @@
-html,
-body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+/*Adapted from*/
+/*https://codepen.io/dropside/pen/GZNVmO*/
+
+/*TODO apply media screen here for tape to disappear on smaller screens*/
+
+html {
+  /*change ratio of tape size here*/
+  --ratio: 0.5;
+  /*trying to center the vhs so the animation makes it rotate on its center, ratio is for all other translations and such*/
+  --center_move: calc(5.481em * var(--ratio));
+  /*Here instead of hardcoded because of the centering*/
+  --VHS_Width: 5.481em;
 }
 
 #space {
   perspective: 800px;
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -31,8 +37,9 @@ body {
 .scene {
   width: 80em;
   height: 80em;
+  /*TODO edit position of vhs here*/
   top: 50%;
-  left: 50%;
+  left: 12vw;
   margin: -40em 0 0 -40em;
 }
 
@@ -48,7 +55,7 @@ body {
 .face-wrapper {
   overflow: hidden;
   transform-origin: 0 0;
-  backface-visibility: hidden;
+  backface-visibility: visible;
   /* hidden by default, prevent blinking and other weird rendering glitchs */
 }
 
@@ -63,28 +70,34 @@ body {
   height: 100%
 }
 
+/*big sides*/
 [class*="cuboid"] .ft,
 [class*="cuboid"] .bk {
   width: 100%;
   height: 100%;
 }
 
+/*backside*/
 [class*="cuboid"] .bk {
   left: 100%;
 }
 
+/*spine*/
 [class*="cuboid"] .rt {
   transform: rotateY(-90deg) translateX(-50%);
 }
 
+/*visible tape*/
 [class*="cuboid"] .lt {
   transform: rotateY(90deg) translateX(-50%);
 }
 
+/*top*/
 [class*="cuboid"] .tp {
   transform: rotateX(90deg) translateY(-50%);
 }
 
+/*bottom*/
 [class*="cuboid"] .bm {
   transform: rotateX(-90deg) translateY(-50%);
 }
@@ -100,31 +113,30 @@ body {
 /* .VHS styles */
 .VHS {
   position: relative;
-  transform: translate3D(2.9047619047619038em, 0.08823529411764708em, 4.436507936507938em) rotateX(0deg) rotateY(-65.1deg) rotateZ(0deg);
   opacity: 1;
-  width: 5.481em;
-  height: 9.838em;
-  margin: -4.919em 0 0 -2.7405em;
+  width: calc(var(--VHS_Width) * var(--ratio));
+  height: calc(9.838em * var(--ratio));
 }
 
+
 .VHS .ft {
-  transform: translateZ(0.65515em);
+  transform: translateZ(calc(0.65515em * var(--ratio)));
 }
 
 .VHS .bk {
-  transform: translateZ(-0.65515em) rotateY(180deg);
+  transform: translateZ(calc(-0.65515em * var(--ratio))) rotateY(180deg);
 }
 
 .VHS .rt,
 .VHS .lt {
-  width: 1.3103em;
-  height: 9.838em;
+  width: calc(1.3103em * var(--ratio));
+  height: calc(9.838em * var(--ratio));
 }
 
 .VHS .tp,
 .VHS .bm {
-  width: 5.481em;
-  height: 1.3103em;
+  width: calc(5.481em * var(--ratio));
+  height: calc(1.3103em * var(--ratio));
 }
 
 .VHS .face {
@@ -147,6 +159,7 @@ body {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/21555/sony_dynamicron_bottom.jpg);
 }
 
+/*bellow are the ones that dont get properly resized*/
 .VHS .lt {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/21555/sony_dynamicron_tape.jpg);
 }
@@ -156,6 +169,13 @@ body {
 }
 
 /* spin the scene */
+
+/*CAMPEAOOOOOOOO TANTA HORA PARA ALGO TAO FACIL*/
+/*TODO verifica com escala com janelas maiores*/
+.VHS {
+  transform: translateX(calc(var(--VHS_Width) * 0.3 * -1));
+}
+
 .scene {
   -webkit-animation: turn 10s infinite linear;
   animation: turn 10s infinite linear;

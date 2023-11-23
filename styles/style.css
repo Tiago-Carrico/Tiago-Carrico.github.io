@@ -519,8 +519,7 @@ main {
   margin-top: 8vh;
   top: 50%;
   transform: translate(0, -55%);
-  border: solid;
-  border-color: purple;
+  z-index: 1;
 }
 
 .socials_item {
