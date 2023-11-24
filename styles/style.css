@@ -471,8 +471,6 @@ https://codepen.io/anatravas/pen/vyOwOZ
 /*CONTENT PART BEGIN*/
 
 main {
-  border: solid;
-  border-color: red;
   margin-top: 8vh;
   /*margin-left: 12vw;*/
   margin-left: 20vw;
@@ -503,8 +501,6 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: solid;
-  border-color: blue;
 }
 
 /*ABOUT SECTION END*/
