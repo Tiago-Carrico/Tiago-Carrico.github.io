@@ -638,3 +638,16 @@ li {
 }
 
 /*CAT FACTS PART END*/
+
+/*TEXT SCROLL PART BEGIN*/
+.scroll_wrapper {
+  display: flex;
+}
+
+section{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*TEXT SCROLL PART END*/
