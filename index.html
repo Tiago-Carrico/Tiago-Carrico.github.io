@@ -8,10 +8,6 @@
   <link rel="favicon" type="image/x-icon" href="Assets/Images/vhs_favicon.png">
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
   <script src="scripts/script.js"></script>
-  <script src="scripts/scroll.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!--Slider button import-->
   <link href="styles/slider.css" rel="stylesheet" type="text/css" />
   <!--Static imports-->
@@ -96,76 +92,60 @@
   <main>
     <div id="about" class="main_section">
       <!--Include small bio and pic of me-->
-      <div class="demo_wrapper">
-        <h2>About</h2>
-        <section class="scroll_text">
-          <div class="scroll_wrapper">
-            <div class="block">
-              <p>
-                Hi, I'm Tiago, an Computer Engineering student currently taking my Master's in Software Engineering.<br>
-                Even though I'm a programmer by day, my true passion lies in horror, especially games or movies, with my
-                favorites being, "Dead Space" and "The Wailing", respectively. Other
-                interests include cooking, bike riding and gaming.<br>
-                My early interest in videogames as a hobby gave me an interest in general technology, which ultimately
-                put
-                me on the academic path I currently am.
+      <h2>About</h2>
+      <div class="block">
+        <p>
+          Hi, I'm Tiago, an Computer Engineering student currently taking my Master's in Software Engineering.<br>
+          Even though I'm a programmer by day, my true passion lies in horror, especially games or movies, with my
+          favorites being, "Dead Space" and "The Wailing", respectively. Other
+          interests include cooking, bike riding and gaming.<br>
+          My early interest in videogames as a hobby gave me an interest in general technology, which ultimately put me
+          on the academic path I currently am.
 
-              </p>
-              <img class="selfPic" src='Assets/Images/bigpic.jpg''>
-          </div>
-        </div>
-      </section>
+        </p>
+        <img class="selfPic" src='Assets/Images/bigpic.jpg''>
+      </div>
     </div>
     <div id="projects" class="main_section">
       <h2>Past projects</h2>
-      <section class="scroll_text">
-        <div class="scroll_wrapper">
-          <div class="block" id="projects_block">
-            <p>Throughout my years as a student, I developed several projects for classes and became aquainted with many technologies for such occasians.</p>
-            <div class="lists">
-              <div id="techList">
-                <p>Technologies:</p>
-                <ul>
-                  <li>Python</li>
-                  <li>Django</li>
-                  <li>C/C++</li>
-                  <li>Java</li>
-                  <li>SpringBoot</li>
-                  <li>HTML/CSS/JS (I swear I can do better than this :P)</li>
-                  <li>React</li>
-                  <li>PostgreSQL</li>
-                </ul>
-              </div>
-              <div id="projectList">
-                <p>Some cool projects:</p>
-                <ul>
-                  <li>A voting system</li>
-                  <li>A pharmacy' s prescription system</li>
-              <li>Investigation institute management platform</li>
-              <li>Auction website backend/API</li>
-              <li>API for a veterinary</li>
-              <li>Order management system for a bakery</li>
-              <li>Browser task manager</li>
-              </ul>
-              <p class="disclaimer">Disclaimer: none of these are in use and were made for academic purposes.</p>
-            </div>
+      <div class="block" id="projects_block">
+        <p>Throughout my years as a student, I developed several projects for classes and became aquainted with many technologies for such occasians.</p>
+        <div class="lists">
+          <div id="techList">
+            <p>Technologies:</p>
+            <ul>
+              <li>Python</li>
+              <li>Django</li>
+              <li>C/C++</li>
+              <li>Java</li>
+              <li>SpringBoot</li>
+              <li>HTML/CSS/JS (I swear I can do better than this :P)</li>
+              <li>React</li>
+              <li>PostgreSQL</li>
+            </ul>
           </div>
+          <div id="projectList">
+            <p>Some cool projects:</p>
+            <ul>
+              <li>A voting system</li>
+              <li>A pharmacy' s prescription system</li>
+        <li>Investigation institute management platform</li>
+        <li>Auction website backend/API</li>
+        <li>API for a veterinary</li>
+        <li>Order management system for a bakery</li>
+        <li>Browser task manager</li>
+        </ul>
+        <p class="disclaimer">Disclaimer: none of these are in use and were made for academic purposes.</p>
       </div>
     </div>
-    </section>
+    </div>
     </div>
     <div id="funfacts" class="main_section">
       <h2>Random cat fact and free cat</h2>
-      <section class="scroll_text">
-        <div class="scroll_wrapper">
-          <div class="block">
-            <span id="cat-fact"></span>
-            <img src="" alt="random cat" id="random-cat" />
-          </div>
-        </div>
-      </section>
-    </div>
-    </div>
+      <div class="block">
+        <span id="cat-fact"></span>
+        <img src="" alt="random cat" id="random-cat" />
+      </div>
   </main>
   <div class="body_bg">
     <div class="main-wrapper">
