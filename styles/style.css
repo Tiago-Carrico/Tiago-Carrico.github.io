@@ -17,10 +17,11 @@
   src: url('Helvetica\ Bold\ Condensed\ Oblique.otf') format('woff');
 }
 
+/*
 @font-face {
   font-family: Helvetica-Custom;
   src: url('Helvetica\ CE\ Bold.otf') format('woff');
-}
+}*/
 
 
 /*both are the "global" vars for light mode and dark mode themes*/
@@ -89,7 +90,7 @@ h2 {
 }
 
 p {
-  font-family: Helvetica-Custom, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: bold;
 }
 

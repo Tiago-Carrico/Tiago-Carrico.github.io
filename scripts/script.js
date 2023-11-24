@@ -46,10 +46,11 @@ function getCatFact() {
 }
 
 /*https://codepen.io/thebigdavec/pen/eYWNemj */
-async function getCatImg(){
+async function getCatImg() {
   const img = document.getElementById("random-cat");
   const catURL = await fetch("https://api.thecatapi.com/v1/images/search");
   const catData = await catURL.json();
   const catImg = catData[0].url;
   img.src = catImg;
 }
+
